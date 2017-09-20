@@ -5,7 +5,7 @@ import sys
 
 camID = 0
 
-capture = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(camID)
 cv2.namedWindow("camera",1)
 
 #set FRAME_WIDTH,FRAME_HEIGHT
@@ -16,8 +16,8 @@ cv2.namedWindow("camera",1)
 你可以通过videocapture成员函数set来设置，摄像机的分辨率。
 videocapture默认的情况下为640×480。
 '''
-print capture.set(3,320)
-print capture.set(4,240)
+print capture.set(3,640)
+print capture.set(4,480)
 
 if not capture.isOpened():
 	print("Camera open failed!")
@@ -68,7 +68,7 @@ ha,img = capture.read()
 print "ha"
 print ha
 print "img"
-print img
+print img.shape
 
 capture.release()
 cv2.destroyAllWindows()
