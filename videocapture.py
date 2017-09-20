@@ -5,8 +5,19 @@ import sys
 
 camID = 0
 
-capture = cv2.VideoCapture(camID)
+capture = cv2.VideoCapture(0)
 cv2.namedWindow("camera",1)
+
+#set FRAME_WIDTH,FRAME_HEIGHT
+'''
+设置摄像机分辨率的问题。
+最小分辨率，宽度为4，高度为3。
+以此类推应该为4的倍数或3的倍数。
+你可以通过videocapture成员函数set来设置，摄像机的分辨率。
+videocapture默认的情况下为640×480。
+'''
+print capture.set(3,320)
+print capture.set(4,240)
 
 if not capture.isOpened():
 	print("Camera open failed!")
