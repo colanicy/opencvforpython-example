@@ -1,7 +1,9 @@
 #-*-coding:utf-8-*-
 
 import cv2
+import matplotlib.pyplot as plt
 import sys
+import copy
 
 camID = 0
 
@@ -58,7 +60,9 @@ for i in range(0,21):
 
 while(True):
 	ha,img = capture.read()
-	
+	#水平翻转
+	img = cv2.flip(img,1)
+
 	cv2.rectangle(img,(426,0),(640,250),(170,170,0),3)
 	cv2.imshow("camera",img)
 	if cv2.waitKey(1) & 0xFF == ord('q'):
